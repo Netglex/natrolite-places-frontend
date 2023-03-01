@@ -1,14 +1,11 @@
 import { useState } from "react";
-import { NatroliteClient } from "./api/natroliteWebApi";
+import natroliteClient from "./api/natroliteClient";
 
 function App() {
   const [answer, setAnswer] = useState("...");
 
   const generateAnswer = async () => {
-    const client = new NatroliteClient(
-      import.meta.env.VITE_NATROLITE_WEBAPI_URL
-    );
-    client.getTherapy().then((therapy) => setAnswer(therapy.answer!));
+    natroliteClient.getTherapy().then((therapy) => setAnswer(therapy.answer!));
   };
 
   return (
