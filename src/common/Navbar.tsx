@@ -1,28 +1,29 @@
 import Button from "./Button";
 import Logo from "./Logo";
-import { useAppSelector } from "app/hooks";
-import { selectView } from "app/slices/pageSlice";
+import { useAppDispatch, useAppSelector } from "app/hooks";
+import { selectView, setView } from "app/slices/pageSlice";
 import ThemeSwitch from "features/ThemeSwitch";
 import View from "views/view";
 import { RiLogoutBoxLine } from "react-icons/ri";
 
 export default function Navbar() {
   const view = useAppSelector(selectView);
+  const dispatch = useAppDispatch();
 
   return (
-    <nav className="flex border-b-2 border-zinc-400 dark:border-zinc-700 justify-between items-center bg-zinc-100 dark:bg-zinc-900 p-3">
+    <nav className="flex items-center justify-between bg-zinc-100 p-3 dark:bg-zinc-900">
       <div
         className={`flex items-center gap-2 ${
           view === View.Login && "invisible"
         }`}
       >
         <Logo />
-        <h2 className="text-2xl font-semibold">Natorlite Places</h2>
+        <h2 className="text-2xl font-medium">Natorlite Places</h2>
       </div>
       <div className="flex items-center gap-3">
         <ThemeSwitch />
         {view === View.Places && (
-          <Button>
+          <Button onClick={() => dispatch(setView(View.Login))}>
             <RiLogoutBoxLine /> Logout
           </Button>
         )}
