@@ -21,7 +21,7 @@ export default function LoginView() {
       <main className="flex flex-grow items-center justify-center py-10">
         <div className="flex w-96 flex-col items-center rounded-lg bg-zinc-100 pt-8 pb-12 dark:bg-zinc-900">
           <Logo className="mb-4 h-32" />
-          <h1 className="mb-12 text-3xl font-semibold">Natorlite Places</h1>
+          <h1 className="mb-12 text-3xl font-semibold">Natrolite Places</h1>
           <Input
             className="mb-6 w-72"
             value={currentUsername}

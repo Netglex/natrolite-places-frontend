@@ -18,7 +18,7 @@ export default function Navbar() {
         }`}
       >
         <Logo />
-        <h2 className="text-2xl font-medium">Natorlite Places</h2>
+        <h2 className="text-2xl font-medium">Natrolite Places</h2>
       </div>
       <div className="flex items-center gap-3">
         <ThemeSwitch />
