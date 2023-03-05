@@ -1,10 +1,12 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
-import pageReducer from "features/page/pageSlice";
-import themeReducer from "features/theme/themeSlice";
+import pageReducer from "app/slices/pageSlice";
+import placesReducer from "app/slices/placesSlice";
+import themeReducer from "app/slices/themeSlice";
 
 export const store = configureStore({
   reducer: {
     page: pageReducer,
+    places: placesReducer,
     theme: themeReducer,
   },
 });

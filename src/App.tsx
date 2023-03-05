@@ -1,5 +1,6 @@
 import { useAppSelector } from "app/hooks";
-import { selectView } from "features/page/pageSlice";
+import { selectView } from "app/slices/pageSlice";
+import { selectDark } from "app/slices/themeSlice";
 import LoginView from "views/LoginView";
 import PlacesView from "views/PlacesView";
 import View from "views/view";
@@ -40,16 +41,15 @@ function App() {
   // const sendMessage = async (message: string) => {
   //   if (connection) await connection.send("SendMessage", message);
   // };
+  const dark = useAppSelector(selectDark);
   const view = useAppSelector(selectView);
 
-  switch (view) {
-    case View.Login:
-      return <LoginView />;
-    case View.Places:
-      return <PlacesView />;
-    default:
-      return <LoginView />;
-  }
+  return (
+    <div className={`${dark ? "dark bg-zinc-800 text-white" : "bg-zinc-200 text-black"}`}>
+      {view === View.Login && <LoginView />}
+      {view === View.Places && <PlacesView />}
+    </div>
+  );
 }
 
 export default App;
